@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>챕터 상세 - 머신러너 | AI 주식투자</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .chapter-detail {
+            background-color: #fff;
+            padding: 60px 0;
+        }
+
+        .chapter-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px;
+            background: linear-gradient(135deg, #000 0%, #333 100%);
+            color: #fff;
+            border-radius: 12px;
+        }
+
+        .chapter-number {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+
+        .chapter-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .chapter-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .section-box {
+            background-color: #f8f9fa;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .section-box h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .data-list {
+            display: grid;
+            gap: 15px;
+        }
+
+        .data-item {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+        }
+
+        .data-item:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transform: translateX(5px);
+        }
+
+        .data-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: #000;
+        }
+
+        .data-info p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .download-btn {
+            background-color: #000;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .download-btn:hover {
+            background-color: #333;
+        }
+
+        .prompt-list {
+            display: grid;
+            gap: 20px;
+        }
+
+        .prompt-card {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            border: 2px solid #10a37f;
+        }
+
+        .prompt-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 15px;
+            gap: 20px;
+        }
+
+        .prompt-info h4 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: #000;
+        }
+
+        .prompt-type {
+            display: inline-block;
+            background-color: #10a37f;
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .prompt-description {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .prompt-preview {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 3px solid #10a37f;
+            margin-bottom: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #333;
+        }
+
+        .prompt-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-prompt {
+            background-color: #10a37f;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-prompt:hover {
+            background-color: #0d8c6a;
+        }
+
+        .btn-copy {
+            background-color: #f0f0f0;
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 6px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-copy:hover {
+            background-color: #e0e0e0;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #000;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .platform-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .badge-chatgpt {
+            background-color: #10a37f;
+            color: #fff;
+        }
+
+        .badge-claude {
+            background-color: #cc9b7a;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-section">
+                <img src="logo.png" alt="Machine Learner Logo" class="logo">
+                <h1>머신러너</h1>
+                <p class="tagline">MACHINE LEARNER</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="chapter-detail">
+            <div class="container">
+                <a href="chapters.html" class="back-link">← 챕터 목록으로</a>
+
+                <div class="chapter-header">
+                    <p class="chapter-number">CHAPTER <span id="chapterNum">4</span></p>
+                    <h1 id="chapterTitle">머신러닝 모델 구축</h1>
+                    <p id="chapterDesc">회귀, 분류 모델을 활용한 주가 예측 시스템을 구축합니다.</p>
+                </div>
+
+                <!-- 데이터 다운로드 섹션 -->
+                <div class="section-box">
+                    <h2>📊 실습 데이터</h2>
+                    <div class="data-list" id="dataList">
+                        <!-- 동적으로 생성됨 -->
+                    </div>
+                </div>
+
+                <!-- AI 프롬프트 섹션 -->
+                <div class="section-box">
+                    <h2>💬 AI 프롬프트</h2>
+                    <div class="prompt-list" id="promptList">
+                        <!-- 동적으로 생성됨 -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 머신러너 (Machine Learner). All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // URL에서 챕터 번호 가져오기
+        const urlParams = new URLSearchParams(window.location.search);
+        const chapterNum = urlParams.get('ch') || '1';
+
+        // 챕터별 데이터
+        const chapters = {
+            '1': {
+                title: '육하원칙',
+                desc: 'AI 기반 주식투자의 기초 개념과 환경 설정을 학습합니다.',
+                data: [
+                    { name: 'sample_stock_data.csv', desc: '샘플 주식 데이터 (OHLCV)', file: 'sample_stock_data.csv' },
+                    { name: 'market_index.csv', desc: '주요 시장 지수 데이터', file: 'market_index.csv' },
+                    { name: 'trading_basics.xlsx', desc: '투자 기초 용어 정리', file: 'trading_basics.xlsx' }
+                ],
+                prompts: [
+                    {
+                        title: '주식 데이터 분석 시작하기',
+                        platform: 'chatgpt',
+                        desc: 'CSV 형식의 주식 데이터를 로드하고 기본 통계를 분석합니다.',
+                        preview: '다음 주식 데이터를 분석해주세요: [데이터 업로드]\n1. 기본 통계량 계산\n2. 결측치 확인\n3. 데이터 타입 검증',
+                        link: 'https://chatgpt.com/share/example1'
+                    },
+                    {
+                        title: '투자 용어 학습',
+                        platform: 'chatgpt',
+                        desc: '주식투자 기본 용어를 AI와 대화하며 학습합니다.',
+                        preview: 'OHLCV, 시가총액, PER, PBR 등 주요 주식 용어를 쉽게 설명해주세요.',
+                        link: 'https://chatgpt.com/share/example2'
+                    }
+                ]
+            },
+            '2': {
+                title: '의사결정',
+                desc: '주식 데이터를 수집하고 AI 학습을 위한 전처리 방법을 배웁니다.',
+                data: [
+                    { name: 'raw_stock_data.csv', desc: '원본 주식 데이터', file: 'raw_stock_data.csv' },
+                    { name: 'preprocessed_data.csv', desc: '전처리된 데이터', file: 'preprocessed_data.csv' },
+                    { name: 'data_cleaning_script.py', desc: '데이터 정제 스크립트', file: 'data_cleaning_script.py' }
+                ],
+                prompts: [
+                    {
+                        title: '결측치 처리 전략',
+                        platform: 'chatgpt',
+                        desc: '주식 데이터의 결측치를 처리하는 다양한 방법을 학습합니다.',
+                        preview: '주식 데이터에서 결측치를 발견했습니다. 보간법, 삭제, 평균값 대체 등의 방법 중 어떤 것이 적합할까요?',
+                        link: 'https://chatgpt.com/share/example3'
+                    }
+                ]
+            },
+            '3': {
+                title: '호재악재',
+                desc: '이동평균선, RSI, MACD 등 주요 기술적 지표를 이해하고 활용합니다.',
+                data: [
+                    { name: 'technical_indicators.csv', desc: '기술적 지표 계산 결과', file: 'technical_indicators.csv' },
+                    { name: 'indicator_signals.csv', desc: '매매 신호 데이터', file: 'indicator_signals.csv' }
+                ],
+                prompts: []
+            },
+            '4': {
+                title: '재무제표',
+                desc: '회귀, 분류 모델을 활용한 주가 예측 시스템을 구축합니다.',
+                data: [
+                    { name: 'training_data.csv', desc: '모델 학습용 데이터', file: 'training_data.csv' },
+                    { name: 'test_data.csv', desc: '모델 테스트 데이터', file: 'test_data.csv' },
+                    { name: 'feature_engineering.py', desc: '피처 엔지니어링 코드', file: 'feature_engineering.py' },
+                    { name: 'model_training.py', desc: '모델 학습 스크립트', file: 'model_training.py' }
+                ],
+                prompts: [
+                    {
+                        title: '주가 예측 모델 설계',
+                        platform: 'chatgpt',
+                        desc: '선형회귀, 랜덤포레스트, XGBoost를 비교하여 최적 모델을 선택합니다.',
+                        preview: '주가 예측을 위한 머신러닝 모델을 설계하려고 합니다. 어떤 모델이 적합하고, 각 모델의 장단점은 무엇인가요?',
+                        link: 'https://chatgpt.com/share/68afadd0-c5c8-800b-8ed0-ccc45f98fabc'
+                    },
+                    {
+                        title: '피처 중요도 분석',
+                        platform: 'claude',
+                        desc: '모델 성능에 영향을 미치는 주요 특성을 파악합니다.',
+                        preview: '학습된 모델에서 feature importance를 분석하고, 가장 중요한 변수 5개를 시각화해주세요.',
+                        link: 'https://claude.ai/share/example1'
+                    }
+                ]
+            },
+            '5': {
+                title: '투자멘토',
+                desc: 'LSTM, GRU 등 딥러닝 기법으로 시계열 데이터를 분석합니다.',
+                data: [],
+                prompts: []
+            },
+            '6': {
+                title: '안전마진',
+                desc: '현대 포트폴리오 이론과 AI를 결합한 자산 배분 전략을 학습합니다.',
+                data: [],
+                prompts: []
+            },
+            '7': {
+                title: '딥리서치',
+                desc: '뉴스와 소셜미디어 데이터를 분석하여 시장 심리를 파악합니다.',
+                data: [],
+                prompts: []
+            },
+            '8': {
+                title: '백테스트',
+                desc: '투자 전략을 검증하고 성과를 측정하는 방법을 배웁니다.',
+                data: [],
+                prompts: []
+            },
+            '9': {
+                title: '에이전트',
+                desc: '학습한 내용을 종합하여 완전한 AI 투자 시스템을 만듭니다.',
+                data: [],
+                prompts: []
+            }
+        };
+
+        // 챕터 정보 표시
+        const chapter = chapters[chapterNum];
+        document.getElementById('chapterNum').textContent = chapterNum;
+        document.getElementById('chapterTitle').textContent = chapter.title;
+        document.getElementById('chapterDesc').textContent = chapter.desc;
+
+        // 데이터 목록 생성
+        const dataList = document.getElementById('dataList');
+        if (chapter.data.length > 0) {
+            chapter.data.forEach(item => {
+                const dataItem = document.createElement('div');
+                dataItem.className = 'data-item';
+                dataItem.innerHTML = `
+                    <div class="data-info">
+                        <h4>${item.name}</h4>
+                        <p>${item.desc}</p>
+                    </div>
+                    <a href="data/chapter${chapterNum}/${item.file}" class="download-btn" download>다운로드</a>
+                `;
+                dataList.appendChild(dataItem);
+            });
+        } else {
+            dataList.innerHTML = '<p style="color: #999; text-align: center; padding: 20px;">곧 업데이트 예정입니다.</p>';
+        }
+
+        // 프롬프트 목록 생성
+        const promptList = document.getElementById('promptList');
+        if (chapter.prompts.length > 0) {
+            chapter.prompts.forEach(prompt => {
+                const promptCard = document.createElement('div');
+                promptCard.className = 'prompt-card';
+
+                const platformBadge = prompt.platform === 'chatgpt'
+                    ? '<span class="platform-badge badge-chatgpt">🤖 ChatGPT</span>'
+                    : '<span class="platform-badge badge-claude">🧠 Claude</span>';
+
+                promptCard.innerHTML = `
+                    <div class="prompt-header">
+                        <div class="prompt-info">
+                            <h4>${prompt.title}</h4>
+                            ${platformBadge}
+                        </div>
+                    </div>
+                    <p class="prompt-description">${prompt.desc}</p>
+                    <div class="prompt-preview">${prompt.preview}</div>
+                    <div class="prompt-actions">
+                        <a href="${prompt.link}" target="_blank" class="btn-prompt">
+                            🔗 프롬프트 보기
+                        </a>
+                        <button class="btn-copy" onclick="copyPrompt('${prompt.preview.replace(/'/g, "\\'")}')">
+                            📋 복사
+                        </button>
+                    </div>
+                `;
+                promptList.appendChild(promptCard);
+            });
+        } else {
+            promptList.innerHTML = '<p style="color: #999; text-align: center; padding: 20px;">곧 업데이트 예정입니다.</p>';
+        }
+
+        // 프롬프트 복사 기능
+        function copyPrompt(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('프롬프트가 클립보드에 복사되었습니다!');
+            });
+        }
+    </script>
+</body>
+</html>

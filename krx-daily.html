@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가격 데이터 - 머신러너 | AI 주식투자</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .data-section {
+            background-color: #fff;
+            padding: 60px 0;
+        }
+
+        .search-box {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .search-box input:focus {
+            border-color: #000;
+        }
+
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .data-item {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .data-item:hover {
+            background-color: #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .data-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #000;
+        }
+
+        .data-info {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .data-info-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .download-link {
+            display: inline-block;
+            background-color: #000;
+            color: #fff;
+            padding: 8px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+        }
+
+        .download-link:hover {
+            background-color: #333;
+        }
+
+        .info-box {
+            background-color: #f0f7ff;
+            border-left: 4px solid #000;
+            padding: 20px;
+            margin-bottom: 40px;
+            border-radius: 4px;
+        }
+
+        .info-box h4 {
+            margin-bottom: 10px;
+            color: #000;
+        }
+
+        .info-box ul {
+            margin-left: 20px;
+            color: #555;
+        }
+
+        .info-box ul li {
+            margin-bottom: 5px;
+        }
+
+        .download-all-btn {
+            display: inline-block;
+            background-color: #000;
+            color: #fff;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 20px auto;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .download-all-btn:hover {
+            background-color: #333;
+        }
+
+        .btn-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .stats {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .stats h3 {
+            font-size: 2.5rem;
+            color: #000;
+            margin-bottom: 10px;
+        }
+
+        .stats p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #000;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-section">
+                <img src="logo.png" alt="Machine Learner Logo" class="logo">
+                <h1>머신러너</h1>
+                <p class="tagline">MACHINE LEARNER</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="data-section">
+            <div class="container">
+                <a href="krx-ohlcv.html" class="back-link">← 데이터 선택으로</a>
+
+                <h2 style="text-align: center; margin-bottom: 20px;">한국 주식 일간 데이터 (Daily OHLCV)</h2>
+
+                <div class="stats">
+                    <h3 id="totalCount">2,500+</h3>
+                    <p>종목의 일간 OHLCV 데이터</p>
+                </div>
+
+                <div class="info-box">
+                    <h4>📊 데이터 정보</h4>
+                    <ul>
+                        <li><strong>포맷:</strong> CSV (Comma-Separated Values)</li>
+                        <li><strong>주기:</strong> 일간 (Daily)</li>
+                        <li><strong>컬럼:</strong> Date, Open, High, Low, Close, Volume</li>
+                        <li><strong>종목 수:</strong> 약 2,500개 (KOSPI + KOSDAQ)</li>
+                        <li><strong>업데이트:</strong> 매 영업일</li>
+                        <li><strong>용도:</strong> AI 주식투자 분석 및 머신러닝 학습</li>
+                    </ul>
+                </div>
+
+                <div class="btn-container">
+                    <a href="data/krx_ohlcv_daily.zip" class="download-all-btn" download>📦 전체 데이터 한번에 다운로드</a>
+                </div>
+
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="종목명 또는 코드로 검색... (예: 삼성전자, 005930)">
+                </div>
+
+                <div id="dataGrid" class="data-grid">
+                    <!-- 데이터 항목들이 여기에 동적으로 추가됩니다 -->
+                    <div class="data-item">
+                        <h4>005930 - 삼성전자</h4>
+                        <div class="data-info">
+                            <div class="data-info-item">
+                                <span>기간:</span>
+                                <span>2000.01 ~ 2025.11</span>
+                            </div>
+                            <div class="data-info-item">
+                                <span>데이터 수:</span>
+                                <span>310개월</span>
+                            </div>
+                        </div>
+                        <a href="data/krx_ohlcv/daily/005930_samsung.csv" class="download-link" download>다운로드</a>
+                    </div>
+
+                    <div class="data-item">
+                        <h4>000660 - SK하이닉스</h4>
+                        <div class="data-info">
+                            <div class="data-info-item">
+                                <span>기간:</span>
+                                <span>2000.01 ~ 2025.11</span>
+                            </div>
+                            <div class="data-info-item">
+                                <span>데이터 수:</span>
+                                <span>310개월</span>
+                            </div>
+                        </div>
+                        <a href="data/krx_ohlcv/daily/000660_skhynix.csv" class="download-link" download>다운로드</a>
+                    </div>
+
+                    <div class="data-item">
+                        <h4>035420 - NAVER</h4>
+                        <div class="data-info">
+                            <div class="data-info-item">
+                                <span>기간:</span>
+                                <span>2002.10 ~ 2025.11</span>
+                            </div>
+                            <div class="data-info-item">
+                                <span>데이터 수:</span>
+                                <span>278개월</span>
+                            </div>
+                        </div>
+                        <a href="data/krx_ohlcv/daily/035420_naver.csv" class="download-link" download>다운로드</a>
+                    </div>
+
+                    <div class="data-item">
+                        <h4>035720 - 카카오</h4>
+                        <div class="data-info">
+                            <div class="data-info-item">
+                                <span>기간:</span>
+                                <span>2010.03 ~ 2025.11</span>
+                            </div>
+                            <div class="data-info-item">
+                                <span>데이터 수:</span>
+                                <span>189개월</span>
+                            </div>
+                        </div>
+                        <a href="data/krx_ohlcv/daily/035720_kakao.csv" class="download-link" download>다운로드</a>
+                    </div>
+
+                    <!-- 여기에 나머지 2496개 종목 데이터를 추가하세요 -->
+
+                    <div class="data-item" style="background-color: #fff; border: 2px dashed #ddd; display: flex; align-items: center; justify-content: center; min-height: 150px;">
+                        <p style="color: #999; text-align: center;">
+                            나머지 2,496개 종목<br>
+                            CSV 파일 업로드 후 자동 생성
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 머신러너 (Machine Learner). All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 검색 기능
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const dataItems = document.querySelectorAll('.data-item');
+
+            dataItems.forEach(item => {
+                const title = item.querySelector('h4');
+                if (title) {
+                    const text = title.textContent.toLowerCase();
+                    if (text.includes(searchTerm)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

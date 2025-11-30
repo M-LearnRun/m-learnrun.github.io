@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>챕터별 학습 자료 - 머신러너 | AI 주식투자</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .chapters-section {
+            background-color: #f8f9fa;
+            padding: 60px 0;
+        }
+
+        .chapter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .chapter-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-left: 5px solid #000;
+        }
+
+        .chapter-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .chapter-number {
+            display: inline-block;
+            background-color: #000;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .chapter-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #000;
+        }
+
+        .chapter-description {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .chapter-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .chapter-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background-color: #333;
+        }
+
+        .btn-secondary {
+            background-color: #f0f0f0;
+            color: #000;
+        }
+
+        .btn-secondary:hover {
+            background-color: #e0e0e0;
+        }
+
+        .btn-prompt {
+            background-color: #10a37f;
+            color: #fff;
+        }
+
+        .btn-prompt:hover {
+            background-color: #0d8c6a;
+        }
+
+        .intro-section {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .intro-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .intro-section p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #000;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-section">
+                <img src="logo.png" alt="Machine Learner Logo" class="logo">
+                <h1>머신러너</h1>
+                <p class="tagline">MACHINE LEARNER</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="chapters-section">
+            <div class="container">
+                <a href="index.html" class="back-link">← 홈으로 돌아가기</a>
+
+                <div class="intro-section">
+                    <h2>챕터별 학습 자료</h2>
+                    <p>각 챕터의 실습 데이터, 코드, AI 프롬프트를 다운로드하고 직접 따라해보세요.</p>
+                </div>
+
+                <div class="chapter-grid">
+                    <!-- Chapter 1 -->
+                    <div class="chapter-card">
+                        <span class="chapter-number">Chapter 1</span>
+                        <h3>육하원칙</h3>
+                        <p class="chapter-description">
+                            AI 기반 주식투자의 기초 개념과 환경 설정을 학습합니다.
+                        </p>
+                        <div class="chapter-meta">
+                            <span class="meta-item">📊 데이터: 3개</span>
+                            <span class="meta-item">💬 프롬프트: 2개</span>
+                        </div>
+                        <div class="chapter-actions">
+                            <a href="chapter.html?ch=1" class="btn btn-primary">📚 학습 시작</a>
+                        </div>
+                    </div>
+
+                    <!-- Chapter 2 -->
+                    <div class="chapter-card">
+                        <span class="chapter-number">Chapter 2</span>
+                        <h3>의사결정</h3>
+                        <p class="chapter-description">
+                            주식 데이터를 수집하고 AI 학습을 위한 전처리 방법을 배웁니다.
+                        </p>
+                        <div class="chapter-meta">
+                            <span class="meta-item">📊 데이터: 5개</span>
+                            <span class="meta-item">💬 프롬프트: 3개</span>
+                        </div>
+                        <div class="chapter-actions">
+                            <a href="chapter.html?ch=2" class="btn btn-primary">📚 학습 시작</a>
+                        </div>
+                    </div>
+
+                    <!-- Chapter 3 -->
+                    <div class="chapter-card">
+                        <span class="chapter-number">Chapter 3</span>
+                        <h3>호재악재</h3>
+                        <p class="chapter-description">
+                            이동평균선, RSI, MACD 등 주요 기술적 지표를 이해하고 활용합니다.
+                        </p>
+                        <div class="chapter-meta">
+                            <span class="meta-item">📊 데이터: 4개</span>
+                            <span class="meta-item">💬 프롬프트: 4개</span>
+                        </div>
+                        <div class="chapter-actions">
+                            <a href="chapter.html?ch=3" class="btn btn-primary">📚 학습 시작</a>
+                        </div>
+                    </div>
+
+                    <!-- Chapter 4 -->
+                    <div class="chapter-card">
+                        <span class="chapter-number">Chapter 4</span>
+                        <h3>재무제표</h3>
+                        <p class="chapter-description">
+                            회귀, 분류 모델을 활용한 주가 예측 시스템을 구축합니다.
+                        </p>
+                        <div class="chapter-meta">
+                            <span class="meta-item">📊 데이터: 6개</span>
+                            <span class="meta-item">💬 프롬프트: 5개</span>
+                        </div>
+                        <div class="chapter-actions">
+                            <a href="chapter.html?ch=4" class="btn btn-primary">📚 학습 시작</a>
+                        </div>
+                    </div>
+
+                    <!-- Chapter 5 -->
+                    <div class="chapter-card">
+                        <span class="chapter-number">Chapter 5</span>
+                        <h3>투자멘토</h3>
+                        <p class="chapter-description">
+                            LSTM, GRU 등 딥러닝 기법으로 시계열 데이터를 분석합니다.
+                        </p>
+                        <div class="chapter-meta">
+                            <span class="meta-item">📊 데이터: 5개</span>
+                            <span class="meta-item">💬 프롬프트: 4개</span>
+                        </div>
+                        <div class="chapter-actions">
+                            <a href="chapter.html?ch=5" class="btn btn-primary">📚 학습 시작</a>
+                        </div>
+                    </div>
+
+                    <!-- Chapter 6 -->
+                    <div class="chapter-card">
+                        <span class="chapter-number">Chapter 6</span>
+                        <h3>안전마진</h3>
+                        <p class="chapter-description">
+                            현대 포트폴리오 이론과 AI를 결합한 자산 배분 전략을 학습합니다.
+                        </p>
+                        <div class="chapter-meta">
+                            <span class="meta-item">📊 데이터: 7개</span>
+                            <span class="meta-item">💬 프롬프트: 3개</span>
+                        </div>
+                        <div class="chapter-actions">
+                            <a href="chapter.html?ch=6" class="btn btn-primary">📚 학습 시작</a>
+                        </div>
+                    </div>
+
+                    <!-- Chapter 7 -->
+                    <div class="chapter-card">
+                        <span class="chapter-number">Chapter 7</span>
+                        <h3>딥리서치</h3>
+                        <p class="chapter-description">
+                            뉴스와 소셜미디어 데이터를 분석하여 시장 심리를 파악합니다.
+                        </p>
+                        <div class="chapter-meta">
+                            <span class="meta-item">📊 데이터: 4개</span>
+                            <span class="meta-item">💬 프롬프트: 6개</span>
+                        </div>
+                        <div class="chapter-actions">
+                            <a href="chapter.html?ch=7" class="btn btn-primary">📚 학습 시작</a>
+                        </div>
+                    </div>
+
+                    <!-- Chapter 8 -->
+                    <div class="chapter-card">
+                        <span class="chapter-number">Chapter 8</span>
+                        <h3>백테스트</h3>
+                        <p class="chapter-description">
+                            투자 전략을 검증하고 성과를 측정하는 방법을 배웁니다.
+                        </p>
+                        <div class="chapter-meta">
+                            <span class="meta-item">📊 데이터: 5개</span>
+                            <span class="meta-item">💬 프롬프트: 3개</span>
+                        </div>
+                        <div class="chapter-actions">
+                            <a href="chapter.html?ch=8" class="btn btn-primary">📚 학습 시작</a>
+                        </div>
+                    </div>
+
+                    <!-- Chapter 9 -->
+                    <div class="chapter-card">
+                        <span class="chapter-number">Chapter 9</span>
+                        <h3>에이전트</h3>
+                        <p class="chapter-description">
+                            학습한 내용을 종합하여 완전한 AI 투자 시스템을 만듭니다.
+                        </p>
+                        <div class="chapter-meta">
+                            <span class="meta-item">📊 데이터: 8개</span>
+                            <span class="meta-item">💬 프롬프트: 5개</span>
+                        </div>
+                        <div class="chapter-actions">
+                            <a href="chapter.html?ch=9" class="btn btn-primary">📚 학습 시작</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 머신러너 (Machine Learner). All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

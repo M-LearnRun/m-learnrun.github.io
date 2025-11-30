@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한국 주식 가격 데이터 - 머신러너 | AI 주식투자</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .data-selection {
+            background-color: #f8f9fa;
+            padding: 60px 0;
+        }
+
+        .selection-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .selection-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .selection-header p {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .data-type-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .data-type-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 50px 40px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+
+        .data-type-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            border-color: #000;
+        }
+
+        .data-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .data-type-card h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #000;
+        }
+
+        .data-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .badge-available {
+            background-color: #10a37f;
+            color: #fff;
+        }
+
+        .badge-coming {
+            background-color: #f0f0f0;
+            color: #666;
+        }
+
+        .data-description {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-size: 1.05rem;
+        }
+
+        .data-stats {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            color: #555;
+        }
+
+        .stat-label {
+            font-weight: 600;
+        }
+
+        .btn-large {
+            display: inline-block;
+            background-color: #000;
+            color: #fff;
+            padding: 16px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+
+        .btn-large:hover {
+            background-color: #333;
+            transform: scale(1.05);
+        }
+
+        .btn-disabled {
+            background-color: #ddd;
+            color: #999;
+            cursor: not-allowed;
+        }
+
+        .btn-disabled:hover {
+            background-color: #ddd;
+            transform: none;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #000;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .info-box {
+            background-color: #fff;
+            border-left: 4px solid #000;
+            padding: 20px;
+            margin-bottom: 40px;
+            border-radius: 4px;
+        }
+
+        .info-box h4 {
+            margin-bottom: 10px;
+            color: #000;
+        }
+
+        .info-box ul {
+            margin-left: 20px;
+            color: #555;
+        }
+
+        .info-box ul li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-section">
+                <img src="logo.png" alt="Machine Learner Logo" class="logo">
+                <p class="tagline">MACHINE LEARNER</p>
+                <p class="tagline" style="margin-top: -10px;">MACHINE RUNNER</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="data-selection">
+            <div class="container">
+                <a href="index.html" class="back-link">← 홈으로 돌아가기</a>
+
+                <div class="selection-header">
+                    <h2>한국 주식 가격 데이터 (KRX OHLCV)</h2>
+                    <p>2,500+ 종목의 OHLCV 데이터를 월간 또는 일간 단위로 제공합니다.</p>
+                </div>
+
+                <div class="info-box">
+                    <h4>📊 데이터 정보</h4>
+                    <ul>
+                        <li><strong>포맷:</strong> CSV (Comma-Separated Values)</li>
+                        <li><strong>컬럼:</strong> Date, Open, High, Low, Close, Volume</li>
+                        <li><strong>종목 수:</strong> 약 2,500개 (KOSPI + KOSDAQ)</li>
+                        <li><strong>업데이트:</strong> 매 월 초 (월간), 매 영업일 (일간)</li>
+                        <li><strong>용도:</strong> AI 주식투자 분석 및 머신러닝 학습</li>
+                    </ul>
+                </div>
+
+                <div class="data-type-grid">
+                    <!-- 월간 데이터 -->
+                    <div class="data-type-card">
+                        <div class="data-icon">📅</div>
+                        <h3>월간 데이터</h3>
+                        <span class="data-badge badge-coming">준비중</span>
+                        <p class="data-description">
+                            장기 추세 분석과 포트폴리오 백테스팅에 적합한 월간 OHLCV 데이터입니다.
+                            데이터 크기가 작아 빠른 분석이 가능합니다.
+                        </p>
+                        <div class="data-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">주기:</span>
+                                <span>월간 (Monthly)</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">데이터 크기:</span>
+                                <span>약 50MB</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">기간:</span>
+                                <span>2000년 ~ 현재</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">종목 수:</span>
+                                <span>2,500+</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn-large btn-disabled" onclick="alert('곧 업데이트 예정입니다.'); return false;">
+                            준비중
+                        </a>
+                    </div>
+
+                    <!-- 일간 데이터 -->
+                    <div class="data-type-card">
+                        <div class="data-icon">📈</div>
+                        <h3>일간 데이터</h3>
+                        <span class="data-badge badge-available">이용 가능</span>
+                        <p class="data-description">
+                            단기 트레이딩과 정밀한 기술적 분석에 적합한 일간 OHLCV 데이터입니다.
+                            풍부한 데이터로 세밀한 패턴 학습이 가능합니다.
+                        </p>
+                        <div class="data-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">주기:</span>
+                                <span>일간 (Daily)</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">데이터 크기:</span>
+                                <span>약 500MB</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">기간:</span>
+                                <span>2000년 ~ 현재</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">종목 수:</span>
+                                <span>2,500+</span>
+                            </div>
+                        </div>
+                        <a href="krx-daily.html" class="btn-large">
+                            다운로드
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 사용 예시 -->
+                <div class="info-box" style="margin-top: 60px;">
+                    <h4>💡 어떤 데이터를 선택해야 하나요?</h4>
+                    <ul>
+                        <li><strong>월간 데이터 추천:</strong> 장기 투자 전략, 포트폴리오 최적화, 자산 배분</li>
+                        <li><strong>일간 데이터 추천:</strong> 단기 매매, 기술적 지표 분석, 딥러닝 모델 학습</li>
+                        <li><strong>둘 다 사용:</strong> 멀티 타임프레임 분석으로 더 정확한 예측 가능</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 머신러너 (Machine Learner). All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
