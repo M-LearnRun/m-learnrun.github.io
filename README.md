@@ -1,1 +1,1 @@
-# aistock.github.io
+# aistock
