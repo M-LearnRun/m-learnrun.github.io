@@ -136,26 +136,42 @@
         .back-link {
             display: inline-block;
             margin-bottom: 20px;
-            color: #000;
+            color: #667eea;
             text-decoration: none;
             font-weight: 600;
+            transition: all 0.2s;
         }
 
         .back-link:hover {
-            text-decoration: underline;
+            color: #764ba2;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="logo-section">
-                <img src="logo.png" alt="Machine Learner Logo" class="logo">
-                <h1>머신러너</h1>
-                <p class="tagline">MACHINE LEARNER</p>
+    <!-- 상단 네비게이션 바 -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-brand">
+                <img src="logo.png" alt="Machine Learner Logo" class="nav-logo">
+                <span class="nav-brand-text">머신러너</span>
+            </a>
+
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="nav-links">
+                <a href="index.html#downloads" class="nav-link">데이터 다운로드</a>
+                <a href="index.html#quant-data" class="nav-link">퀀트 데이터</a>
+                <a href="index.html#ai-prompts" class="nav-link">AI 프롬프트</a>
+                <a href="index.html#book-updates" class="nav-link">도서개정</a>
+                <a href="index.html#ai-updates" class="nav-link">AI 업데이트</a>
+                <a href="index.html#insights" class="nav-link">투자 인사이트</a>
             </div>
         </div>
-    </header>
+    </nav>
 
     <main>
         <section class="chapters-section">
@@ -321,5 +337,7 @@
             <p>&copy; 2025 머신러너 (Machine Learner). All rights reserved.</p>
         </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

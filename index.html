@@ -7,18 +7,34 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="logo-section">
-                <img src="logo.png" alt="Machine Learner Logo" class="logo">
-                <p class="tagline">MACHINE LEARNER</p>
-                <p class="tagline" style="margin-top: -10px;">MACHINE RUNNER</p>
+    <!-- 상단 네비게이션 바 -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#hero" class="nav-brand">
+                <img src="logo.png" alt="Machine Learner Logo" class="nav-logo">
+                <span class="nav-brand-text">머신러너</span>
+            </a>
+
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="nav-links">
+                <a href="#downloads" class="nav-link">데이터 다운로드</a>
+                <a href="#quant-data" class="nav-link">퀀트 데이터</a>
+                <a href="#ai-prompts" class="nav-link">AI 프롬프트</a>
+                <a href="#book-updates" class="nav-link">도서개정</a>
+                <a href="#ai-updates" class="nav-link">AI 업데이트</a>
+                <a href="#insights" class="nav-link">투자 인사이트</a>
             </div>
         </div>
-    </header>
+    </nav>
 
     <main>
-        <section class="hero">
+        <!-- 히어로 섹션 (최상단) -->
+        <section id="hero" class="hero">
             <div class="container">
                 <h2>AI 주식투자</h2>
                 <p class="subtitle">
@@ -28,7 +44,8 @@
             </div>
         </section>
 
-        <section class="downloads">
+        <!-- 데이터 다운로드 섹션 -->
+        <section id="downloads" class="downloads">
             <div class="container">
                 <h3>데이터 다운로드</h3>
                 <p class="download-description">
@@ -49,21 +66,184 @@
                     </div>
 
                     <div class="download-card">
-                        <h4>📈 한국 주식 퀀트 데이터 (준비중)</h4>
-                        <p>재무제표, 밸류에이션 등</p>
-                        <a href="#" class="download-btn" onclick="alert('곧 업데이트 예정입니다.'); return false;">다운로드</a>
+                        <h4>📈 한국 주식 퀀트 데이터</h4>
+                        <p>재무제표, 밸류에이션 등 (준비중)</p>
+                        <a href="#quant-data" class="download-btn">자세히 보기</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="updates">
+        <!-- 퀀트 데이터 섹션 -->
+        <section id="quant-data" class="quant-data">
             <div class="container">
-                <h3>업데이트</h3>
+                <h3>퀀트 데이터</h3>
+                <p class="section-description">
+                    곧 제공될 퀀트 투자 데이터를 미리 확인하세요.
+                </p>
+
+                <div class="download-grid">
+                    <div class="download-card">
+                        <h4>📊 재무제표 데이터</h4>
+                        <p>손익계산서, 재무상태표, 현금흐름표</p>
+                        <span class="badge-coming-soon">준비중</span>
+                    </div>
+
+                    <div class="download-card">
+                        <h4>💰 밸류에이션 지표</h4>
+                        <p>PER, PBR, ROE, 배당수익률 등</p>
+                        <span class="badge-coming-soon">준비중</span>
+                    </div>
+
+                    <div class="download-card">
+                        <h4>📈 기술적 지표 데이터</h4>
+                        <p>이동평균, RSI, MACD, 볼린저밴드</p>
+                        <span class="badge-coming-soon">준비중</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI 프롬프트 섹션 -->
+        <section id="ai-prompts" class="ai-prompts">
+            <div class="container">
+                <h3>AI 프롬프트</h3>
+                <p class="section-description">
+                    각 챕터별 AI 학습을 위한 프롬프트를 제공합니다.
+                </p>
+
+                <div class="prompt-grid">
+                    <div class="prompt-card">
+                        <span class="chapter-badge">Chapter 1-3</span>
+                        <h4>기초 & 데이터 수집</h4>
+                        <p>육하원칙, 의사결정, 호재악재</p>
+                        <div class="prompt-meta">
+                            <span>💬 9개 프롬프트</span>
+                        </div>
+                        <a href="chapters.html" class="prompt-link">프롬프트 보기 →</a>
+                    </div>
+
+                    <div class="prompt-card">
+                        <span class="chapter-badge">Chapter 4-6</span>
+                        <h4>AI 모델링 & 포트폴리오</h4>
+                        <p>재무제표, 투자멘토, 안전마진</p>
+                        <div class="prompt-meta">
+                            <span>💬 12개 프롬프트</span>
+                        </div>
+                        <a href="chapters.html" class="prompt-link">프롬프트 보기 →</a>
+                    </div>
+
+                    <div class="prompt-card">
+                        <span class="chapter-badge">Chapter 7-9</span>
+                        <h4>고급 분석 & 시스템 구축</h4>
+                        <p>딥리서치, 백테스트, 에이전트</p>
+                        <div class="prompt-meta">
+                            <span>💬 14개 프롬프트</span>
+                        </div>
+                        <a href="chapters.html" class="prompt-link">프롬프트 보기 →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 실시간 도서개정 섹션 -->
+        <section id="book-updates" class="book-updates">
+            <div class="container">
+                <h3>실시간 도서개정</h3>
+                <p class="section-description">
+                    도서의 최신 업데이트 내역을 확인하세요.
+                </p>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">2025.01.15</div>
+                        <div class="timeline-content">
+                            <h4>Chapter 3 호재악재 섹션 업데이트</h4>
+                            <p>뉴스 감성분석 프롬프트 추가 및 예제 코드 개선</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">2024.12.20</div>
+                        <div class="timeline-content">
+                            <h4>새로운 AI 프롬프트 추가</h4>
+                            <p>전 챕터에 ChatGPT/Claude 활용 프롬프트 10개 추가</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">2024.11.01</div>
+                        <div class="timeline-content">
+                            <h4>초판 출간</h4>
+                            <p>머신러너 - AI 주식투자 도서 출간</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI 업데이트 현황 섹션 -->
+        <section id="ai-updates" class="ai-updates">
+            <div class="container">
+                <h3>AI 업데이트 현황</h3>
+                <p class="section-description">
+                    최신 AI 기술과 모델 업데이트를 확인하세요.
+                </p>
+
                 <div class="update-list">
                     <div class="update-item">
-                        <span class="date">2025.11</span>
+                        <span class="date">2025.01</span>
+                        <span class="content">GPT-4 Turbo 프롬프트 최적화 가이드 추가</span>
+                    </div>
+                    <div class="update-item">
+                        <span class="date">2024.12</span>
+                        <span class="content">Claude 3.5 Sonnet을 활용한 재무제표 분석 예제</span>
+                    </div>
+                    <div class="update-item">
+                        <span class="date">2024.11</span>
                         <span class="content">웹사이트 오픈</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 주식투자 인사이트 섹션 -->
+        <section id="insights" class="insights">
+            <div class="container">
+                <h3>주식투자 인사이트</h3>
+                <p class="section-description">
+                    AI 주식투자 전문가의 노하우와 인사이트를 공유합니다.
+                </p>
+
+                <div class="insights-grid">
+                    <div class="insight-card">
+                        <div class="insight-icon">🤖</div>
+                        <h4>AI 모델 선택 가이드</h4>
+                        <p>LSTM vs Transformer: 주가 예측에 적합한 모델은?</p>
+                        <div class="insight-footer">
+                            <span class="insight-tag">AI 모델링</span>
+                            <span class="insight-read-time">5분 읽기</span>
+                        </div>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-icon">⚠️</div>
+                        <h4>백테스팅 함정</h4>
+                        <p>백테스팅에서 놓치기 쉬운 3가지 함정과 해결 방법</p>
+                        <div class="insight-footer">
+                            <span class="insight-tag">백테스팅</span>
+                            <span class="insight-read-time">7분 읽기</span>
+                        </div>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-icon">📊</div>
+                        <h4>뉴스 감성분석</h4>
+                        <p>뉴스 감성분석으로 시장 심리 파악하기</p>
+                        <div class="insight-footer">
+                            <span class="insight-tag">데이터 분석</span>
+                            <span class="insight-read-time">6분 읽기</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -75,5 +255,7 @@
             <p>&copy; 2025 머신러너 (Machine Learner). All rights reserved.</p>
         </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
