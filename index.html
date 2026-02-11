@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>머신러너 - Machine Learner | AI 주식투자</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body>
     <!-- 상단 네비게이션 바 -->
@@ -22,12 +23,13 @@
             </div>
 
             <div class="nav-links">
+                <a href="#market" class="nav-link">주식시장</a>
                 <a href="#downloads" class="nav-link">데이터 다운로드</a>
-                <a href="#quant-data" class="nav-link">퀀트 데이터</a>
                 <a href="#ai-prompts" class="nav-link">AI 프롬프트</a>
                 <a href="#book-updates" class="nav-link">도서개정</a>
-                <a href="#ai-updates" class="nav-link">AI 업데이트</a>
-                <a href="#insights" class="nav-link">투자 인사이트</a>
+                <a href="#ai-updates" class="nav-link">AI 소식</a>
+                <a href="#insights" class="nav-link">투자 메모</a>
+                <a href="#contact" class="nav-link">Contact</a>
             </div>
         </div>
     </nav>
@@ -41,6 +43,94 @@
                     머신러닝과 인공지능을 활용한 데이터 기반 투자 전략 구축<br>
                     9개 챕터로 배우는 실전 AI 투자 시스템
                 </p>
+            </div>
+        </section>
+
+        <!-- 주식시장 섹션 -->
+        <section id="market" class="market">
+            <div class="container">
+                <h3>주식시장</h3>
+                <p class="section-description">한국과 미국 주요 지수의 최근 1년 흐름을 확인하세요.</p>
+
+                <div class="market-grid">
+                    <!-- KOSPI -->
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <div class="chart-title-group">
+                                <span class="market-label korea">한국</span>
+                                <h4 class="chart-name">KOSPI</h4>
+                            </div>
+                            <div class="chart-stats" id="kospiStats">
+                                <span class="chart-price" id="kospiPrice">—</span>
+                                <span class="chart-change" id="kospiChange">—</span>
+                            </div>
+                        </div>
+                        <div class="chart-wrap">
+                            <canvas id="kospiChart"></canvas>
+                            <div class="chart-loading" id="kospiLoading">데이터 로딩 중...</div>
+                        </div>
+                        <div class="chart-footer" id="kospiDate">—</div>
+                    </div>
+
+                    <!-- S&P 500 -->
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <div class="chart-title-group">
+                                <span class="market-label us">미국</span>
+                                <h4 class="chart-name">S&P 500</h4>
+                            </div>
+                            <div class="chart-stats" id="sp500Stats">
+                                <span class="chart-price" id="sp500Price">—</span>
+                                <span class="chart-change" id="sp500Change">—</span>
+                            </div>
+                        </div>
+                        <div class="chart-wrap">
+                            <canvas id="sp500Chart"></canvas>
+                            <div class="chart-loading" id="sp500Loading">데이터 로딩 중...</div>
+                        </div>
+                        <div class="chart-footer" id="sp500Date">—</div>
+                    </div>
+
+                    <!-- KOSDAQ -->
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <div class="chart-title-group">
+                                <span class="market-label korea">한국</span>
+                                <h4 class="chart-name">KOSDAQ</h4>
+                            </div>
+                            <div class="chart-stats" id="kosdaqStats">
+                                <span class="chart-price" id="kosdaqPrice">—</span>
+                                <span class="chart-change" id="kosdaqChange">—</span>
+                            </div>
+                        </div>
+                        <div class="chart-wrap">
+                            <canvas id="kosdaqChart"></canvas>
+                            <div class="chart-loading" id="kosdaqLoading">데이터 로딩 중...</div>
+                        </div>
+                        <div class="chart-footer" id="kosdaqDate">—</div>
+                    </div>
+
+                    <!-- QQQ -->
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <div class="chart-title-group">
+                                <span class="market-label us">미국</span>
+                                <h4 class="chart-name">QQQ</h4>
+                            </div>
+                            <div class="chart-stats" id="qqqStats">
+                                <span class="chart-price" id="qqqPrice">—</span>
+                                <span class="chart-change" id="qqqChange">—</span>
+                            </div>
+                        </div>
+                        <div class="chart-wrap">
+                            <canvas id="qqqChart"></canvas>
+                            <div class="chart-loading" id="qqqLoading">데이터 로딩 중...</div>
+                        </div>
+                        <div class="chart-footer" id="qqqDate">—</div>
+                    </div>
+                </div>
+
+                <p class="market-note">* 데이터 출처: Yahoo Finance. 실시간이 아닐 수 있습니다.</p>
             </div>
         </section>
 
@@ -68,36 +158,6 @@
                     <div class="download-card">
                         <h4>📈 한국 주식 퀀트 데이터</h4>
                         <p>재무제표, 밸류에이션 등 (준비중)</p>
-                        <a href="#quant-data" class="download-btn">자세히 보기</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 퀀트 데이터 섹션 -->
-        <section id="quant-data" class="quant-data">
-            <div class="container">
-                <h3>퀀트 데이터</h3>
-                <p class="section-description">
-                    곧 제공될 퀀트 투자 데이터를 미리 확인하세요.
-                </p>
-
-                <div class="download-grid">
-                    <div class="download-card">
-                        <h4>📊 재무제표 데이터</h4>
-                        <p>손익계산서, 재무상태표, 현금흐름표</p>
-                        <span class="badge-coming-soon">준비중</span>
-                    </div>
-
-                    <div class="download-card">
-                        <h4>💰 밸류에이션 지표</h4>
-                        <p>PER, PBR, ROE, 배당수익률 등</p>
-                        <span class="badge-coming-soon">준비중</span>
-                    </div>
-
-                    <div class="download-card">
-                        <h4>📈 기술적 지표 데이터</h4>
-                        <p>이동평균, RSI, MACD, 볼린저밴드</p>
                         <span class="badge-coming-soon">준비중</span>
                     </div>
                 </div>
@@ -149,7 +209,7 @@
         <!-- 실시간 도서개정 섹션 -->
         <section id="book-updates" class="book-updates">
             <div class="container">
-                <h3>실시간 도서개정</h3>
+                <h3>도서개정</h3>
                 <p class="section-description">
                     도서의 최신 업데이트 내역을 확인하세요.
                 </p>
@@ -182,10 +242,10 @@
             </div>
         </section>
 
-        <!-- AI 업데이트 현황 섹션 -->
+        <!-- AI 소식 섹션 -->
         <section id="ai-updates" class="ai-updates">
             <div class="container">
-                <h3>AI 업데이트 현황</h3>
+                <h3>AI 소식</h3>
                 <p class="section-description">
                     최신 AI 기술과 모델 업데이트를 확인하세요.
                 </p>
@@ -207,10 +267,10 @@
             </div>
         </section>
 
-        <!-- 주식투자 인사이트 섹션 -->
+        <!-- 투자 메모 섹션 -->
         <section id="insights" class="insights">
             <div class="container">
-                <h3>주식투자 인사이트</h3>
+                <h3>투자 메모</h3>
                 <p class="section-description">
                     AI 주식투자 전문가의 노하우와 인사이트를 공유합니다.
                 </p>
@@ -248,6 +308,23 @@
                 </div>
             </div>
         </section>
+
+        <!-- Contact 섹션 -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h3>Contact</h3>
+                <p class="section-description">
+                    문의사항이 있으시면 언제든 연락해주세요.
+                </p>
+
+                <div class="contact-card">
+                    <div class="contact-icon">✉️</div>
+                    <h4>이메일 문의</h4>
+                    <p>데이터, 도서, 강의 관련 문의는 이메일로 보내주세요.</p>
+                    <a href="mailto:machinelearner@example.com" class="contact-btn">machinelearner@example.com</a>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -257,5 +334,253 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+    // ─── 주식시장 차트 ────────────────────────────────────────────
+
+    const CHART_COLORS = {
+        kospi:  { line: '#667eea', fill: 'rgba(102,126,234,0.08)' },
+        sp500:  { line: '#f093fb', fill: 'rgba(240,147,251,0.08)' },
+        kosdaq: { line: '#43e97b', fill: 'rgba(67,233,123,0.08)' },
+        qqq:    { line: '#fa8231', fill: 'rgba(250,130,49,0.08)'  }
+    };
+
+    // Yahoo Finance v8 API 호출
+    async function fetchYahoo(symbol) {
+        const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(symbol)}?interval=1d&range=1y`;
+        try {
+            const res = await fetch(url, { headers: { 'Accept': 'application/json' } });
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            const json = await res.json();
+            const result = json?.chart?.result?.[0];
+            if (!result) throw new Error('데이터 없음');
+
+            const timestamps = result.timestamp;
+            const closes = result.indicators.quote[0].close;
+            const rows = [];
+            for (let i = 0; i < timestamps.length; i++) {
+                if (closes[i] != null) {
+                    rows.push({
+                        date: new Date(timestamps[i] * 1000).toISOString().slice(0, 10),
+                        close: closes[i]
+                    });
+                }
+            }
+            return rows;
+        } catch (e) {
+            return null;
+        }
+    }
+
+    // 로컬 CSV 파싱
+    async function loadCSV(path) {
+        try {
+            const res = await fetch(path);
+            if (!res.ok) throw new Error('CSV 로드 실패');
+            const text = await res.text();
+            const lines = text.trim().split('\n');
+            const rows = [];
+            for (let i = 1; i < lines.length; i++) {
+                const cols = lines[i].split(',');
+                if (cols.length >= 5 && cols[4]) {
+                    rows.push({
+                        date: cols[0].trim().slice(0, 10),
+                        close: parseFloat(cols[4])
+                    });
+                }
+            }
+            return rows.slice(-252); // 최근 1년(약 252 거래일)
+        } catch (e) {
+            return null;
+        }
+    }
+
+    // 데이터 로드 (Yahoo 우선, CSV fallback)
+    async function loadData(symbol, csvPath) {
+        let data = await fetchYahoo(symbol);
+        if (!data && csvPath) {
+            data = await loadCSV(csvPath);
+        }
+        return data;
+    }
+
+    // 차트 렌더링
+    function renderChart(canvasId, data, color) {
+        const ctx = document.getElementById(canvasId);
+        if (!ctx) return;
+
+        // x축 레이블: 매월 1일 근처만 표시
+        const labels = data.map(d => d.date);
+        const values = data.map(d => d.close);
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels,
+                datasets: [{
+                    data: values,
+                    borderColor: color.line,
+                    backgroundColor: color.fill,
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.3,
+                    pointRadius: 0,
+                    pointHoverRadius: 4,
+                    pointHoverBackgroundColor: color.line
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: { mode: 'index', intersect: false },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            title: (items) => items[0].label,
+                            label: (item) => {
+                                const val = item.raw;
+                                return val >= 1000
+                                    ? val.toLocaleString('ko-KR', { maximumFractionDigits: 0 })
+                                    : val.toLocaleString('ko-KR', { maximumFractionDigits: 2 });
+                            }
+                        },
+                        backgroundColor: 'rgba(0,0,0,0.75)',
+                        padding: 10,
+                        cornerRadius: 6
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: { display: false },
+                        ticks: {
+                            maxTicksLimit: 6,
+                            maxRotation: 0,
+                            color: '#999',
+                            font: { size: 11 },
+                            callback: function(val, idx) {
+                                // 월 첫 번째 데이터만 표시
+                                const label = this.getLabelForValue(val);
+                                const prev = idx > 0 ? this.getLabelForValue(idx - 1) : null;
+                                if (!prev || label.slice(0, 7) !== prev.slice(0, 7)) {
+                                    return label.slice(5, 7) + '월'; // MM월
+                                }
+                                return '';
+                            }
+                        },
+                        border: { display: false }
+                    },
+                    y: {
+                        grid: {
+                            color: 'rgba(0,0,0,0.05)',
+                            drawTicks: false
+                        },
+                        ticks: {
+                            color: '#999',
+                            font: { size: 11 },
+                            maxTicksLimit: 4,
+                            callback: (val) => val >= 1000
+                                ? (val / 1000).toFixed(1) + 'k'
+                                : val.toFixed(0)
+                        },
+                        border: { display: false }
+                    }
+                }
+            }
+        });
+    }
+
+    // 통계 업데이트 (최신 가격, 등락)
+    function updateStats(priceId, changeId, dateId, data) {
+        if (!data || data.length < 2) {
+            document.getElementById(priceId).textContent = '데이터 없음';
+            return;
+        }
+        const last = data[data.length - 1];
+        const prev = data[data.length - 2];
+        const diff = last.close - prev.close;
+        const pct  = (diff / prev.close) * 100;
+
+        const priceEl  = document.getElementById(priceId);
+        const changeEl = document.getElementById(changeId);
+        const dateEl   = document.getElementById(dateId);
+
+        const fmtClose = last.close >= 1000
+            ? last.close.toLocaleString('ko-KR', { maximumFractionDigits: 0 })
+            : last.close.toLocaleString('ko-KR', { maximumFractionDigits: 2 });
+
+        priceEl.textContent = fmtClose;
+
+        const sign = diff >= 0 ? '+' : '';
+        const fmtDiff = diff >= 1000 || diff <= -1000
+            ? sign + diff.toLocaleString('ko-KR', { maximumFractionDigits: 0 })
+            : sign + diff.toFixed(2);
+        changeEl.textContent = `${fmtDiff} (${sign}${pct.toFixed(2)}%)`;
+        changeEl.className = 'chart-change ' + (diff >= 0 ? 'up' : 'down');
+
+        if (dateEl) dateEl.textContent = `기준: ${last.date}`;
+    }
+
+    // 로딩 상태 처리
+    function hideLoading(loadingId) {
+        const el = document.getElementById(loadingId);
+        if (el) el.style.display = 'none';
+    }
+
+    function showError(loadingId, msg) {
+        const el = document.getElementById(loadingId);
+        if (el) { el.textContent = msg; el.classList.add('error'); }
+    }
+
+    // 메인 실행
+    window.addEventListener('DOMContentLoaded', async () => {
+        const indices = [
+            {
+                symbol: '^KS11',
+                csv: 'data/chapter8/fdr_INDEX_p1d_KS11.csv',
+                canvasId: 'kospiChart',
+                color: CHART_COLORS.kospi,
+                priceId: 'kospiPrice', changeId: 'kospiChange',
+                dateId: 'kospiDate', loadingId: 'kospiLoading'
+            },
+            {
+                symbol: '^GSPC',
+                csv: 'data/chapter8/fdr_INDEX_p1d_US-SnP500.csv',
+                canvasId: 'sp500Chart',
+                color: CHART_COLORS.sp500,
+                priceId: 'sp500Price', changeId: 'sp500Change',
+                dateId: 'sp500Date', loadingId: 'sp500Loading'
+            },
+            {
+                symbol: '^KQ11',
+                csv: 'data/chapter8/fdr_INDEX_p1d_KQ11.csv',
+                canvasId: 'kosdaqChart',
+                color: CHART_COLORS.kosdaq,
+                priceId: 'kosdaqPrice', changeId: 'kosdaqChange',
+                dateId: 'kosdaqDate', loadingId: 'kosdaqLoading'
+            },
+            {
+                symbol: 'QQQ',
+                csv: 'data/chapter8/fdr_INDEX_p1d_QQQ.csv',
+                canvasId: 'qqqChart',
+                color: CHART_COLORS.qqq,
+                priceId: 'qqqPrice', changeId: 'qqqChange',
+                dateId: 'qqqDate', loadingId: 'qqqLoading'
+            }
+        ];
+
+        await Promise.all(indices.map(async (idx) => {
+            const data = await loadData(idx.symbol, idx.csv);
+            hideLoading(idx.loadingId);
+            if (data && data.length > 0) {
+                renderChart(idx.canvasId, data, idx.color);
+                updateStats(idx.priceId, idx.changeId, idx.dateId, data);
+            } else {
+                showError(idx.loadingId, '데이터를 불러올 수 없습니다');
+                document.getElementById(idx.priceId).textContent = '—';
+                document.getElementById(idx.changeId).textContent = '—';
+            }
+        }));
+    });
+    </script>
 </body>
 </html>
