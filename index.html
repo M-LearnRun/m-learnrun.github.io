@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>머신러너 - Machine Learner | AI 주식투자</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
 </head>
 <body>
     <!-- 상단 네비게이션 바 -->
@@ -22,12 +24,13 @@
             </div>
 
             <div class="nav-links">
+                <a href="#market" class="nav-link">주식시장</a>
                 <a href="#downloads" class="nav-link">데이터 다운로드</a>
-                <a href="#quant-data" class="nav-link">퀀트 데이터</a>
                 <a href="#ai-prompts" class="nav-link">AI 프롬프트</a>
                 <a href="#book-updates" class="nav-link">도서개정</a>
-                <a href="#ai-updates" class="nav-link">AI 업데이트</a>
-                <a href="#insights" class="nav-link">투자 인사이트</a>
+                <a href="#ai-updates" class="nav-link">AI 소식</a>
+                <a href="#insights" class="nav-link">투자메모</a>
+                <a href="#contact" class="nav-link">Contact</a>
             </div>
         </div>
     </nav>
@@ -41,6 +44,94 @@
                     머신러닝과 인공지능을 활용한 데이터 기반 투자 전략 구축<br>
                     9개 챕터로 배우는 실전 AI 투자 시스템
                 </p>
+            </div>
+        </section>
+
+        <!-- 주식시장 섹션 -->
+        <section id="market" class="market">
+            <div class="container">
+                <h3>주식시장</h3>
+                <p class="section-description">한국과 미국 주요 지수의 최근 1년 흐름을 확인하세요.</p>
+
+                <div class="market-grid">
+                    <!-- KOSPI -->
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <div class="chart-title-group">
+                                <span class="market-label korea">한국</span>
+                                <h4 class="chart-name">KOSPI</h4>
+                            </div>
+                            <div class="chart-stats" id="kospiStats">
+                                <span class="chart-price" id="kospiPrice">—</span>
+                                <span class="chart-change" id="kospiChange">—</span>
+                            </div>
+                        </div>
+                        <div class="chart-wrap">
+                            <canvas id="kospiChart"></canvas>
+                            <div class="chart-loading" id="kospiLoading">데이터 로딩 중...</div>
+                        </div>
+                        <div class="chart-footer" id="kospiDate">—</div>
+                    </div>
+
+                    <!-- S&P 500 -->
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <div class="chart-title-group">
+                                <span class="market-label us">미국</span>
+                                <h4 class="chart-name">S&P 500</h4>
+                            </div>
+                            <div class="chart-stats" id="sp500Stats">
+                                <span class="chart-price" id="sp500Price">—</span>
+                                <span class="chart-change" id="sp500Change">—</span>
+                            </div>
+                        </div>
+                        <div class="chart-wrap">
+                            <canvas id="sp500Chart"></canvas>
+                            <div class="chart-loading" id="sp500Loading">데이터 로딩 중...</div>
+                        </div>
+                        <div class="chart-footer" id="sp500Date">—</div>
+                    </div>
+
+                    <!-- KOSDAQ -->
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <div class="chart-title-group">
+                                <span class="market-label korea">한국</span>
+                                <h4 class="chart-name">KOSDAQ</h4>
+                            </div>
+                            <div class="chart-stats" id="kosdaqStats">
+                                <span class="chart-price" id="kosdaqPrice">—</span>
+                                <span class="chart-change" id="kosdaqChange">—</span>
+                            </div>
+                        </div>
+                        <div class="chart-wrap">
+                            <canvas id="kosdaqChart"></canvas>
+                            <div class="chart-loading" id="kosdaqLoading">데이터 로딩 중...</div>
+                        </div>
+                        <div class="chart-footer" id="kosdaqDate">—</div>
+                    </div>
+
+                    <!-- QQQ -->
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <div class="chart-title-group">
+                                <span class="market-label us">미국</span>
+                                <h4 class="chart-name">QQQ</h4>
+                            </div>
+                            <div class="chart-stats" id="qqqStats">
+                                <span class="chart-price" id="qqqPrice">—</span>
+                                <span class="chart-change" id="qqqChange">—</span>
+                            </div>
+                        </div>
+                        <div class="chart-wrap">
+                            <canvas id="qqqChart"></canvas>
+                            <div class="chart-loading" id="qqqLoading">데이터 로딩 중...</div>
+                        </div>
+                        <div class="chart-footer" id="qqqDate">—</div>
+                    </div>
+                </div>
+
+                <p class="market-note">* 데이터 출처: Yahoo Finance. 실시간이 아닐 수 있습니다.</p>
             </div>
         </section>
 
@@ -68,36 +159,6 @@
                     <div class="download-card">
                         <h4>📈 한국 주식 퀀트 데이터</h4>
                         <p>재무제표, 밸류에이션 등 (준비중)</p>
-                        <a href="#quant-data" class="download-btn">자세히 보기</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 퀀트 데이터 섹션 -->
-        <section id="quant-data" class="quant-data">
-            <div class="container">
-                <h3>퀀트 데이터</h3>
-                <p class="section-description">
-                    곧 제공될 퀀트 투자 데이터를 미리 확인하세요.
-                </p>
-
-                <div class="download-grid">
-                    <div class="download-card">
-                        <h4>📊 재무제표 데이터</h4>
-                        <p>손익계산서, 재무상태표, 현금흐름표</p>
-                        <span class="badge-coming-soon">준비중</span>
-                    </div>
-
-                    <div class="download-card">
-                        <h4>💰 밸류에이션 지표</h4>
-                        <p>PER, PBR, ROE, 배당수익률 등</p>
-                        <span class="badge-coming-soon">준비중</span>
-                    </div>
-
-                    <div class="download-card">
-                        <h4>📈 기술적 지표 데이터</h4>
-                        <p>이동평균, RSI, MACD, 볼린저밴드</p>
                         <span class="badge-coming-soon">준비중</span>
                     </div>
                 </div>
@@ -149,7 +210,7 @@
         <!-- 실시간 도서개정 섹션 -->
         <section id="book-updates" class="book-updates">
             <div class="container">
-                <h3>실시간 도서개정</h3>
+                <h3>도서개정</h3>
                 <p class="section-description">
                     도서의 최신 업데이트 내역을 확인하세요.
                 </p>
@@ -182,10 +243,10 @@
             </div>
         </section>
 
-        <!-- AI 업데이트 현황 섹션 -->
+        <!-- AI 소식 섹션 -->
         <section id="ai-updates" class="ai-updates">
             <div class="container">
-                <h3>AI 업데이트 현황</h3>
+                <h3>AI 소식</h3>
                 <p class="section-description">
                     최신 AI 기술과 모델 업데이트를 확인하세요.
                 </p>
@@ -207,44 +268,128 @@
             </div>
         </section>
 
-        <!-- 주식투자 인사이트 섹션 -->
+        <!-- 투자메모 섹션 -->
         <section id="insights" class="insights">
             <div class="container">
-                <h3>주식투자 인사이트</h3>
+                <div class="insights-header">
+                    <div>
+                        <h3>투자메모</h3>
+                        <p class="section-description">
+                            AI 주식투자 전문가의 노하우와 인사이트를 공유합니다.
+                        </p>
+                    </div>
+                    <div class="insights-header-actions">
+                        <button id="adminNewPostBtn" class="admin-new-btn" style="display:none" onclick="openPostEditor()">+ 새 글 쓰기</button>
+                        <button id="adminLockBtn" class="admin-lock-btn" title="관리자 로그인" onclick="openAdminLogin()">🔒</button>
+                    </div>
+                </div>
+
+                <!-- 글 목록 (동적 렌더링) -->
+                <div class="insights-grid" id="insightsGrid">
+                    <div class="insights-loading">글을 불러오는 중...</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ 글 읽기 모달 ═══ -->
+        <div id="postReadModal" class="modal-overlay" style="display:none" onclick="if(event.target===this)closeReadModal()">
+            <div class="modal-box modal-read">
+                <button class="modal-close" onclick="closeReadModal()">✕</button>
+                <div id="postReadContent"></div>
+            </div>
+        </div>
+
+        <!-- ═══ 관리자 로그인 모달 ═══ -->
+        <div id="adminLoginModal" class="modal-overlay" style="display:none" onclick="if(event.target===this)closeAdminLogin()">
+            <div class="modal-box modal-login">
+                <h4>관리자 로그인</h4>
+                <div id="adminLoginStep1">
+                    <label>비밀번호</label>
+                    <input type="password" id="adminPwInput" placeholder="비밀번호 입력" onkeydown="if(event.key==='Enter')verifyPassword()">
+                    <div id="adminPwError" class="admin-error" style="display:none">비밀번호가 틀렸습니다.</div>
+                    <div class="modal-actions">
+                        <button onclick="verifyPassword()" class="btn-primary">확인</button>
+                        <button onclick="closeAdminLogin()" class="btn-secondary">취소</button>
+                    </div>
+                </div>
+                <div id="adminLoginStep2" style="display:none">
+                    <p class="admin-pat-desc">GitHub Personal Access Token (PAT)을 입력하세요.<br>
+                    <small>발급: GitHub → Settings → Developer settings → Personal access tokens<br>권한: Contents (Read &amp; Write)</small></p>
+                    <label>GitHub PAT</label>
+                    <input type="password" id="adminPatInput" placeholder="ghp_xxxxxxxxxxxx" onkeydown="if(event.key==='Enter')loginWithPat()">
+                    <label style="margin-top:10px">GitHub 저장소 (owner/repo)</label>
+                    <input type="text" id="adminRepoInput" placeholder="예: username/home_page_ml" value="" onkeydown="if(event.key==='Enter')loginWithPat()">
+                    <div id="adminPatError" class="admin-error" style="display:none">PAT 또는 저장소 이름을 확인하세요.</div>
+                    <div class="modal-actions">
+                        <button onclick="loginWithPat()" class="btn-primary">로그인</button>
+                        <button onclick="closeAdminLogin()" class="btn-secondary">취소</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══ 글 작성/수정 모달 ═══ -->
+        <div id="postEditorModal" class="modal-overlay" style="display:none" onclick="if(event.target===this)closePostEditor()">
+            <div class="modal-box modal-editor">
+                <button class="modal-close" onclick="closePostEditor()">✕</button>
+                <h4 id="editorTitle">새 글 쓰기</h4>
+                <input type="hidden" id="editPostId">
+                <div class="editor-row">
+                    <div class="editor-field" style="flex:1">
+                        <label>이모지</label>
+                        <input type="text" id="editIcon" value="📝" maxlength="4" style="width:60px;text-align:center;font-size:1.4rem">
+                    </div>
+                    <div class="editor-field" style="flex:3">
+                        <label>태그</label>
+                        <input type="text" id="editTag" placeholder="예: 투자전략" maxlength="20">
+                    </div>
+                </div>
+                <div class="editor-field">
+                    <label>제목</label>
+                    <input type="text" id="editTitleInput" placeholder="글 제목" maxlength="100">
+                </div>
+                <div class="editor-field">
+                    <label>본문 (마크다운 지원)</label>
+                    <div class="editor-tabs">
+                        <button class="editor-tab active" id="tabWrite" onclick="switchEditorTab('write')">✏️ 작성</button>
+                        <button class="editor-tab" id="tabPreview" onclick="switchEditorTab('preview')">👁 미리보기</button>
+                    </div>
+                    <textarea id="editContent" rows="14" placeholder="# 제목&#10;&#10;본문을 마크다운으로 작성하세요..."></textarea>
+                    <div id="editPreview" class="editor-preview" style="display:none"></div>
+                </div>
+                <div id="editorSaveError" class="admin-error" style="display:none"></div>
+                <div class="modal-actions">
+                    <button onclick="savePost()" class="btn-primary" id="editorSaveBtn">저장 (GitHub 업로드)</button>
+                    <button onclick="closePostEditor()" class="btn-secondary">취소</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══ 삭제 확인 모달 ═══ -->
+        <div id="deleteConfirmModal" class="modal-overlay" style="display:none" onclick="if(event.target===this)closeDeleteConfirm()">
+            <div class="modal-box modal-confirm">
+                <h4>글 삭제</h4>
+                <p id="deleteConfirmMsg">이 글을 삭제하시겠습니까?</p>
+                <div class="modal-actions">
+                    <button onclick="confirmDelete()" class="btn-danger">삭제</button>
+                    <button onclick="closeDeleteConfirm()" class="btn-secondary">취소</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact 섹션 -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h3>Contact</h3>
                 <p class="section-description">
-                    AI 주식투자 전문가의 노하우와 인사이트를 공유합니다.
+                    문의사항이 있으시면 언제든 연락해주세요.
                 </p>
 
-                <div class="insights-grid">
-                    <div class="insight-card">
-                        <div class="insight-icon">🤖</div>
-                        <h4>AI 모델 선택 가이드</h4>
-                        <p>LSTM vs Transformer: 주가 예측에 적합한 모델은?</p>
-                        <div class="insight-footer">
-                            <span class="insight-tag">AI 모델링</span>
-                            <span class="insight-read-time">5분 읽기</span>
-                        </div>
-                    </div>
-
-                    <div class="insight-card">
-                        <div class="insight-icon">⚠️</div>
-                        <h4>백테스팅 함정</h4>
-                        <p>백테스팅에서 놓치기 쉬운 3가지 함정과 해결 방법</p>
-                        <div class="insight-footer">
-                            <span class="insight-tag">백테스팅</span>
-                            <span class="insight-read-time">7분 읽기</span>
-                        </div>
-                    </div>
-
-                    <div class="insight-card">
-                        <div class="insight-icon">📊</div>
-                        <h4>뉴스 감성분석</h4>
-                        <p>뉴스 감성분석으로 시장 심리 파악하기</p>
-                        <div class="insight-footer">
-                            <span class="insight-tag">데이터 분석</span>
-                            <span class="insight-read-time">6분 읽기</span>
-                        </div>
-                    </div>
+                <div class="contact-card">
+                    <div class="contact-icon">✉️</div>
+                    <h4>이메일 문의</h4>
+                    <p>데이터, 도서, 강의 관련 문의는 이메일로 보내주세요.</p>
+                    <a href="mailto:machinelearner@example.com" class="contact-btn">machinelearner@example.com</a>
                 </div>
             </div>
         </section>
@@ -257,5 +402,622 @@
     </footer>
 
     <script src="script.js"></script>
+
+    <!-- ═══════════════════════════════════════════════════════
+         투자메모 — 비밀번호 보호 글쓰기 시스템
+         ═══════════════════════════════════════════════════════ -->
+    <script>
+    // ──────────────────────────────────────────────────────────────
+    // 설정: 비밀번호 SHA-256 해시 (아래 SETUP 안내 참고)
+    // ──────────────────────────────────────────────────────────────
+    // *** 아직 비밀번호가 설정되지 않았습니다 ***
+    // 원하는 비밀번호를 정하고 Claude에게
+    // "투자메모 비밀번호를 [원하는 비밀번호]로 설정해줘" 라고 하면
+    // 아래 ADMIN_PW_HASH 값을 자동으로 업데이트해 드립니다.
+    const ADMIN_PW_HASH = '80c60714d8f63be704d3dafdabc755301422b1ec8588b7e36680ff5e5258cffb';
+
+    // ──────────────────────────────────────────────────────────────
+    // 상태
+    // ──────────────────────────────────────────────────────────────
+    let isAdmin = false;
+    let adminPat = null;
+    let adminRepo = null;
+    let allPosts = [];
+    let deleteTargetId = null;
+
+    // ──────────────────────────────────────────────────────────────
+    // SHA-256 해시 (Web Crypto API)
+    // ──────────────────────────────────────────────────────────────
+    async function sha256(message) {
+        const msgBuffer = new TextEncoder().encode(message);
+        const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    // ──────────────────────────────────────────────────────────────
+    // posts.json 로드 & 렌더링
+    // ──────────────────────────────────────────────────────────────
+    async function loadPosts() {
+        const grid = document.getElementById('insightsGrid');
+        try {
+            const res = await fetch('data/posts.json?t=' + Date.now());
+            if (!res.ok) throw new Error('로드 실패');
+            allPosts = await res.json();
+            renderPosts();
+        } catch (e) {
+            grid.innerHTML = '<p style="color:#999;text-align:center;padding:2rem">글을 불러오지 못했습니다.</p>';
+        }
+    }
+
+    function renderPosts() {
+        const grid = document.getElementById('insightsGrid');
+        if (!allPosts || allPosts.length === 0) {
+            grid.innerHTML = '<p style="color:#999;text-align:center;padding:2rem">아직 작성된 글이 없습니다.</p>';
+            return;
+        }
+
+        // 최신순 정렬
+        const sorted = [...allPosts].sort((a, b) => b.id - a.id);
+
+        grid.innerHTML = sorted.map(post => {
+            const preview = (post.content || '')
+                .replace(/#+\s*/g, '').replace(/\*\*/g, '').replace(/`/g, '')
+                .slice(0, 80) + '…';
+            const adminBtns = isAdmin ? `
+                <div class="admin-card-btns">
+                    <button class="btn-edit" onclick="event.stopPropagation();openPostEditor('${post.id}')">수정</button>
+                    <button class="btn-delete" onclick="event.stopPropagation();openDeleteConfirm('${post.id}','${escapeHtml(post.title)}')">삭제</button>
+                </div>` : '';
+            return `
+            <div class="insight-card" onclick="openReadModal('${post.id}')">
+                ${adminBtns}
+                <div class="insight-icon">${post.icon || '📝'}</div>
+                <h4>${escapeHtml(post.title)}</h4>
+                <p>${escapeHtml(preview)}</p>
+                <div class="insight-footer">
+                    <span class="insight-tag">${escapeHtml(post.tag || '')}</span>
+                    <span class="insight-read-time">${post.date || ''}</span>
+                </div>
+            </div>`;
+        }).join('');
+    }
+
+    function escapeHtml(s) {
+        return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    // ──────────────────────────────────────────────────────────────
+    // 글 읽기 모달
+    // ──────────────────────────────────────────────────────────────
+    function openReadModal(id) {
+        const post = allPosts.find(p => String(p.id) === String(id));
+        if (!post) return;
+        const html = marked.parse(post.content || '');
+        document.getElementById('postReadContent').innerHTML =
+            `<h2 style="margin-top:0">${escapeHtml(post.title)}</h2>
+             <div style="margin-bottom:1rem">
+                 <span class="insight-tag">${escapeHtml(post.tag||'')}</span>
+                 <span style="color:#aaa;font-size:.85rem;margin-left:.5rem">${post.date||''}</span>
+             </div>
+             <div class="markdown-body">${html}</div>`;
+        document.getElementById('postReadModal').style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeReadModal() {
+        document.getElementById('postReadModal').style.display = 'none';
+        document.body.style.overflow = '';
+    }
+
+    // ──────────────────────────────────────────────────────────────
+    // 관리자 로그인
+    // ──────────────────────────────────────────────────────────────
+    function openAdminLogin() {
+        if (isAdmin) { logoutAdmin(); return; }
+        document.getElementById('adminLoginStep1').style.display = 'block';
+        document.getElementById('adminLoginStep2').style.display = 'none';
+        document.getElementById('adminPwInput').value = '';
+        document.getElementById('adminPwError').style.display = 'none';
+        document.getElementById('adminLoginModal').style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => document.getElementById('adminPwInput').focus(), 100);
+    }
+
+    function closeAdminLogin() {
+        document.getElementById('adminLoginModal').style.display = 'none';
+        document.body.style.overflow = '';
+    }
+
+    async function verifyPassword() {
+        if (ADMIN_PW_HASH === 'SETUP_REQUIRED') {
+            alert('비밀번호가 아직 설정되지 않았습니다.\nClaude에게 "투자메모 비밀번호를 [비밀번호]로 설정해줘" 라고 해주세요.');
+            return;
+        }
+        const pw = document.getElementById('adminPwInput').value;
+        const hash = await sha256(pw);
+        if (hash === ADMIN_PW_HASH) {
+            document.getElementById('adminPwError').style.display = 'none';
+            document.getElementById('adminLoginStep1').style.display = 'none';
+            document.getElementById('adminLoginStep2').style.display = 'block';
+            // 저장된 PAT/Repo 복원
+            const savedPat = sessionStorage.getItem('admin_pat');
+            const savedRepo = sessionStorage.getItem('admin_repo');
+            if (savedPat) document.getElementById('adminPatInput').value = savedPat;
+            if (savedRepo) document.getElementById('adminRepoInput').value = savedRepo;
+            setTimeout(() => document.getElementById('adminPatInput').focus(), 100);
+        } else {
+            document.getElementById('adminPwError').style.display = 'block';
+            document.getElementById('adminPwInput').value = '';
+            document.getElementById('adminPwInput').focus();
+        }
+    }
+
+    async function loginWithPat() {
+        const pat = document.getElementById('adminPatInput').value.trim();
+        const repo = document.getElementById('adminRepoInput').value.trim();
+        if (!pat || !repo || !repo.includes('/')) {
+            document.getElementById('adminPatError').style.display = 'block';
+            return;
+        }
+        // PAT 유효성 간단 확인 (저장소 접근 테스트)
+        try {
+            const res = await fetch(`https://api.github.com/repos/${repo}`, {
+                headers: { 'Authorization': `token ${pat}`, 'Accept': 'application/vnd.github+json' }
+            });
+            if (!res.ok) throw new Error('접근 실패');
+        } catch(e) {
+            document.getElementById('adminPatError').style.display = 'block';
+            document.getElementById('adminPatError').textContent = 'PAT 또는 저장소 이름을 확인하세요. (오류: ' + e.message + ')';
+            return;
+        }
+        adminPat = pat;
+        adminRepo = repo;
+        sessionStorage.setItem('admin_pat', pat);
+        sessionStorage.setItem('admin_repo', repo);
+        isAdmin = true;
+        closeAdminLogin();
+        document.getElementById('adminLockBtn').textContent = '🔓';
+        document.getElementById('adminLockBtn').title = '관리자 로그아웃';
+        document.getElementById('adminNewPostBtn').style.display = 'inline-flex';
+        renderPosts(); // Admin 버튼 표시를 위해 재렌더링
+    }
+
+    function logoutAdmin() {
+        isAdmin = false;
+        adminPat = null;
+        adminRepo = null;
+        sessionStorage.removeItem('admin_pat');
+        sessionStorage.removeItem('admin_repo');
+        document.getElementById('adminLockBtn').textContent = '🔒';
+        document.getElementById('adminLockBtn').title = '관리자 로그인';
+        document.getElementById('adminNewPostBtn').style.display = 'none';
+        renderPosts();
+    }
+
+    // ──────────────────────────────────────────────────────────────
+    // 글 작성/수정 에디터
+    // ──────────────────────────────────────────────────────────────
+    function openPostEditor(id = null) {
+        document.getElementById('editPostId').value = id || '';
+        document.getElementById('editorSaveError').style.display = 'none';
+        document.getElementById('editorSaveBtn').disabled = false;
+
+        if (id) {
+            const post = allPosts.find(p => String(p.id) === String(id));
+            if (!post) return;
+            document.getElementById('editorTitle').textContent = '글 수정';
+            document.getElementById('editIcon').value = post.icon || '📝';
+            document.getElementById('editTag').value = post.tag || '';
+            document.getElementById('editTitleInput').value = post.title || '';
+            document.getElementById('editContent').value = post.content || '';
+        } else {
+            document.getElementById('editorTitle').textContent = '새 글 쓰기';
+            document.getElementById('editIcon').value = '📝';
+            document.getElementById('editTag').value = '';
+            document.getElementById('editTitleInput').value = '';
+            document.getElementById('editContent').value = '';
+        }
+        switchEditorTab('write');
+        document.getElementById('postEditorModal').style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => document.getElementById('editTitleInput').focus(), 100);
+    }
+
+    function closePostEditor() {
+        document.getElementById('postEditorModal').style.display = 'none';
+        document.body.style.overflow = '';
+    }
+
+    function switchEditorTab(tab) {
+        const textarea = document.getElementById('editContent');
+        const preview = document.getElementById('editPreview');
+        const tabWrite = document.getElementById('tabWrite');
+        const tabPreview = document.getElementById('tabPreview');
+        if (tab === 'write') {
+            textarea.style.display = 'block';
+            preview.style.display = 'none';
+            tabWrite.classList.add('active');
+            tabPreview.classList.remove('active');
+        } else {
+            const html = marked.parse(textarea.value || '');
+            preview.innerHTML = '<div class="markdown-body">' + html + '</div>';
+            textarea.style.display = 'none';
+            preview.style.display = 'block';
+            tabWrite.classList.remove('active');
+            tabPreview.classList.add('active');
+        }
+    }
+
+    // ──────────────────────────────────────────────────────────────
+    // GitHub API: posts.json 저장
+    // ──────────────────────────────────────────────────────────────
+    async function getFileSha() {
+        const res = await fetch(`https://api.github.com/repos/${adminRepo}/contents/data/posts.json`, {
+            headers: { 'Authorization': `token ${adminPat}`, 'Accept': 'application/vnd.github+json' }
+        });
+        if (!res.ok) return null;
+        const json = await res.json();
+        return json.sha;
+    }
+
+    async function savePostsToGithub(posts, commitMsg) {
+        const sha = await getFileSha();
+        const content = btoa(unescape(encodeURIComponent(JSON.stringify(posts, null, 2))));
+        const body = { message: commitMsg, content };
+        if (sha) body.sha = sha;
+        const res = await fetch(`https://api.github.com/repos/${adminRepo}/contents/data/posts.json`, {
+            method: 'PUT',
+            headers: {
+                'Authorization': `token ${adminPat}`,
+                'Accept': 'application/vnd.github+json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(body)
+        });
+        if (!res.ok) {
+            const err = await res.json();
+            throw new Error(err.message || 'GitHub 저장 실패');
+        }
+        return true;
+    }
+
+    async function savePost() {
+        const id = document.getElementById('editPostId').value;
+        const icon = document.getElementById('editIcon').value.trim() || '📝';
+        const tag = document.getElementById('editTag').value.trim();
+        const title = document.getElementById('editTitleInput').value.trim();
+        const content = document.getElementById('editContent').value.trim();
+
+        if (!title) { showEditorError('제목을 입력하세요.'); return; }
+        if (!content) { showEditorError('본문을 입력하세요.'); return; }
+
+        const saveBtn = document.getElementById('editorSaveBtn');
+        saveBtn.disabled = true;
+        saveBtn.textContent = '저장 중...';
+
+        try {
+            const today = new Date().toISOString().slice(0, 10);
+            let posts = [...allPosts];
+
+            if (id) {
+                // 수정
+                const idx = posts.findIndex(p => String(p.id) === String(id));
+                if (idx >= 0) {
+                    posts[idx] = { ...posts[idx], icon, tag, title, content };
+                }
+            } else {
+                // 신규
+                const newPost = {
+                    id: String(Date.now()),
+                    title, tag, icon, date: today, content
+                };
+                posts.unshift(newPost);
+            }
+
+            await savePostsToGithub(posts, id ? `Update post: ${title}` : `Add post: ${title}`);
+            allPosts = posts;
+            closePostEditor();
+            renderPosts();
+        } catch(e) {
+            showEditorError('저장 실패: ' + e.message);
+        } finally {
+            saveBtn.disabled = false;
+            saveBtn.textContent = '저장 (GitHub 업로드)';
+        }
+    }
+
+    function showEditorError(msg) {
+        const el = document.getElementById('editorSaveError');
+        el.textContent = msg;
+        el.style.display = 'block';
+    }
+
+    // ──────────────────────────────────────────────────────────────
+    // 글 삭제
+    // ──────────────────────────────────────────────────────────────
+    function openDeleteConfirm(id, title) {
+        deleteTargetId = id;
+        document.getElementById('deleteConfirmMsg').textContent = `"${title}" 글을 삭제하시겠습니까? (복구 불가)`;
+        document.getElementById('deleteConfirmModal').style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeDeleteConfirm() {
+        deleteTargetId = null;
+        document.getElementById('deleteConfirmModal').style.display = 'none';
+        document.body.style.overflow = '';
+    }
+
+    async function confirmDelete() {
+        if (!deleteTargetId) return;
+        const post = allPosts.find(p => String(p.id) === String(deleteTargetId));
+        const posts = allPosts.filter(p => String(p.id) !== String(deleteTargetId));
+        try {
+            await savePostsToGithub(posts, `Delete post: ${post ? post.title : deleteTargetId}`);
+            allPosts = posts;
+            closeDeleteConfirm();
+            renderPosts();
+        } catch(e) {
+            alert('삭제 실패: ' + e.message);
+        }
+    }
+
+    // ──────────────────────────────────────────────────────────────
+    // 초기 로드
+    // ──────────────────────────────────────────────────────────────
+    window.addEventListener('DOMContentLoaded', () => {
+        loadPosts();
+    });
+    </script>
+
+    <script>
+    // ─── 주식시장 차트 ────────────────────────────────────────────
+
+    const CHART_COLORS = {
+        kospi:  { line: '#667eea', fill: 'rgba(102,126,234,0.08)' },
+        sp500:  { line: '#f093fb', fill: 'rgba(240,147,251,0.08)' },
+        kosdaq: { line: '#43e97b', fill: 'rgba(67,233,123,0.08)' },
+        qqq:    { line: '#fa8231', fill: 'rgba(250,130,49,0.08)'  }
+    };
+
+    // Yahoo Finance v8 API 호출
+    async function fetchYahoo(symbol) {
+        const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(symbol)}?interval=1d&range=1y`;
+        try {
+            const res = await fetch(url, { headers: { 'Accept': 'application/json' } });
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            const json = await res.json();
+            const result = json?.chart?.result?.[0];
+            if (!result) throw new Error('데이터 없음');
+
+            const timestamps = result.timestamp;
+            const closes = result.indicators.quote[0].close;
+            const rows = [];
+            for (let i = 0; i < timestamps.length; i++) {
+                if (closes[i] != null) {
+                    rows.push({
+                        date: new Date(timestamps[i] * 1000).toISOString().slice(0, 10),
+                        close: closes[i]
+                    });
+                }
+            }
+            return rows;
+        } catch (e) {
+            return null;
+        }
+    }
+
+    // 로컬 CSV 파싱
+    async function loadCSV(path) {
+        try {
+            const res = await fetch(path);
+            if (!res.ok) throw new Error('CSV 로드 실패');
+            const text = await res.text();
+            const lines = text.trim().split('\n');
+            const rows = [];
+            for (let i = 1; i < lines.length; i++) {
+                const cols = lines[i].split(',');
+                if (cols.length >= 5 && cols[4]) {
+                    rows.push({
+                        date: cols[0].trim().slice(0, 10),
+                        close: parseFloat(cols[4])
+                    });
+                }
+            }
+            return rows.slice(-252); // 최근 1년(약 252 거래일)
+        } catch (e) {
+            return null;
+        }
+    }
+
+    // 데이터 로드 (Yahoo 우선, CSV fallback)
+    async function loadData(symbol, csvPath) {
+        let data = await fetchYahoo(symbol);
+        if (!data && csvPath) {
+            data = await loadCSV(csvPath);
+        }
+        return data;
+    }
+
+    // 차트 렌더링
+    function renderChart(canvasId, data, color) {
+        const ctx = document.getElementById(canvasId);
+        if (!ctx) return;
+
+        // x축 레이블: 매월 1일 근처만 표시
+        const labels = data.map(d => d.date);
+        const values = data.map(d => d.close);
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels,
+                datasets: [{
+                    data: values,
+                    borderColor: color.line,
+                    backgroundColor: color.fill,
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.3,
+                    pointRadius: 0,
+                    pointHoverRadius: 4,
+                    pointHoverBackgroundColor: color.line
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: { mode: 'index', intersect: false },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            title: (items) => items[0].label,
+                            label: (item) => {
+                                const val = item.raw;
+                                return val >= 1000
+                                    ? val.toLocaleString('ko-KR', { maximumFractionDigits: 0 })
+                                    : val.toLocaleString('ko-KR', { maximumFractionDigits: 2 });
+                            }
+                        },
+                        backgroundColor: 'rgba(0,0,0,0.75)',
+                        padding: 10,
+                        cornerRadius: 6
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: { display: false },
+                        ticks: {
+                            maxTicksLimit: 6,
+                            maxRotation: 0,
+                            color: '#999',
+                            font: { size: 11 },
+                            callback: function(val, idx) {
+                                // 월 첫 번째 데이터만 표시
+                                const label = this.getLabelForValue(val);
+                                const prev = idx > 0 ? this.getLabelForValue(idx - 1) : null;
+                                if (!prev || label.slice(0, 7) !== prev.slice(0, 7)) {
+                                    return label.slice(5, 7) + '월'; // MM월
+                                }
+                                return '';
+                            }
+                        },
+                        border: { display: false }
+                    },
+                    y: {
+                        grid: {
+                            color: 'rgba(0,0,0,0.05)',
+                            drawTicks: false
+                        },
+                        ticks: {
+                            color: '#999',
+                            font: { size: 11 },
+                            maxTicksLimit: 4,
+                            callback: (val) => val >= 1000
+                                ? (val / 1000).toFixed(1) + 'k'
+                                : val.toFixed(0)
+                        },
+                        border: { display: false }
+                    }
+                }
+            }
+        });
+    }
+
+    // 통계 업데이트 (최신 가격, 등락)
+    function updateStats(priceId, changeId, dateId, data) {
+        if (!data || data.length < 2) {
+            document.getElementById(priceId).textContent = '데이터 없음';
+            return;
+        }
+        const last = data[data.length - 1];
+        const prev = data[data.length - 2];
+        const diff = last.close - prev.close;
+        const pct  = (diff / prev.close) * 100;
+
+        const priceEl  = document.getElementById(priceId);
+        const changeEl = document.getElementById(changeId);
+        const dateEl   = document.getElementById(dateId);
+
+        const fmtClose = last.close >= 1000
+            ? last.close.toLocaleString('ko-KR', { maximumFractionDigits: 0 })
+            : last.close.toLocaleString('ko-KR', { maximumFractionDigits: 2 });
+
+        priceEl.textContent = fmtClose;
+
+        const sign = diff >= 0 ? '+' : '';
+        const fmtDiff = diff >= 1000 || diff <= -1000
+            ? sign + diff.toLocaleString('ko-KR', { maximumFractionDigits: 0 })
+            : sign + diff.toFixed(2);
+        changeEl.textContent = `${fmtDiff} (${sign}${pct.toFixed(2)}%)`;
+        changeEl.className = 'chart-change ' + (diff >= 0 ? 'up' : 'down');
+
+        if (dateEl) dateEl.textContent = `기준: ${last.date}`;
+    }
+
+    // 로딩 상태 처리
+    function hideLoading(loadingId) {
+        const el = document.getElementById(loadingId);
+        if (el) el.style.display = 'none';
+    }
+
+    function showError(loadingId, msg) {
+        const el = document.getElementById(loadingId);
+        if (el) { el.textContent = msg; el.classList.add('error'); }
+    }
+
+    // 메인 실행
+    window.addEventListener('DOMContentLoaded', async () => {
+        const indices = [
+            {
+                symbol: '^KS11',
+                csv: 'data/chapter8/fdr_INDEX_p1d_KS11.csv',
+                canvasId: 'kospiChart',
+                color: CHART_COLORS.kospi,
+                priceId: 'kospiPrice', changeId: 'kospiChange',
+                dateId: 'kospiDate', loadingId: 'kospiLoading'
+            },
+            {
+                symbol: '^GSPC',
+                csv: 'data/chapter8/fdr_INDEX_p1d_US-SnP500.csv',
+                canvasId: 'sp500Chart',
+                color: CHART_COLORS.sp500,
+                priceId: 'sp500Price', changeId: 'sp500Change',
+                dateId: 'sp500Date', loadingId: 'sp500Loading'
+            },
+            {
+                symbol: '^KQ11',
+                csv: 'data/chapter8/fdr_INDEX_p1d_KQ11.csv',
+                canvasId: 'kosdaqChart',
+                color: CHART_COLORS.kosdaq,
+                priceId: 'kosdaqPrice', changeId: 'kosdaqChange',
+                dateId: 'kosdaqDate', loadingId: 'kosdaqLoading'
+            },
+            {
+                symbol: 'QQQ',
+                csv: 'data/chapter8/fdr_INDEX_p1d_QQQ.csv',
+                canvasId: 'qqqChart',
+                color: CHART_COLORS.qqq,
+                priceId: 'qqqPrice', changeId: 'qqqChange',
+                dateId: 'qqqDate', loadingId: 'qqqLoading'
+            }
+        ];
+
+        await Promise.all(indices.map(async (idx) => {
+            const data = await loadData(idx.symbol, idx.csv);
+            hideLoading(idx.loadingId);
+            if (data && data.length > 0) {
+                renderChart(idx.canvasId, data, idx.color);
+                updateStats(idx.priceId, idx.changeId, idx.dateId, data);
+            } else {
+                showError(idx.loadingId, '데이터를 불러올 수 없습니다');
+                document.getElementById(idx.priceId).textContent = '—';
+                document.getElementById(idx.changeId).textContent = '—';
+            }
+        }));
+    });
+    </script>
 </body>
 </html>

@@ -378,6 +378,183 @@ section h3 {
     margin-top: 12px;
 }
 
+/* ─── 주식시장 섹션 ─────────────────────────────────────────── */
+.market {
+    background: linear-gradient(180deg, #f8f9ff 0%, #ffffff 100%);
+}
+
+.market-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+    .market-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.chart-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px 28px 20px;
+    border: 1px solid #ebebf5;
+    box-shadow: 0 2px 16px rgba(102,126,234,0.07);
+    transition: box-shadow 0.3s ease;
+}
+
+.chart-card:hover {
+    box-shadow: 0 6px 28px rgba(102,126,234,0.13);
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+}
+
+.chart-title-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.market-label {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+
+.market-label.korea {
+    background: rgba(102,126,234,0.12);
+    color: #667eea;
+}
+
+.market-label.us {
+    background: rgba(240,147,251,0.12);
+    color: #c355e0;
+}
+
+.chart-name {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.chart-stats {
+    text-align: right;
+}
+
+.chart-price {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1.2;
+}
+
+.chart-change {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: 2px;
+}
+
+.chart-change.up   { color: #e03131; }
+.chart-change.down { color: #1971c2; }
+
+.chart-wrap {
+    position: relative;
+    height: 160px;
+    margin-bottom: 10px;
+}
+
+.chart-loading {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+.chart-loading.error {
+    color: #f03e3e;
+    font-size: 0.85rem;
+}
+
+.chart-footer {
+    font-size: 0.78rem;
+    color: #bbb;
+    text-align: right;
+    margin-top: 4px;
+}
+
+.market-note {
+    text-align: center;
+    font-size: 0.82rem;
+    color: #bbb;
+    margin-top: 28px;
+}
+
+/* ─── Contact 섹션 ─────────────────────────────────────────── */
+.contact {
+    background: linear-gradient(180deg, #f8f9ff 0%, #ffffff 100%);
+}
+
+.contact-card {
+    max-width: 480px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 20px;
+    padding: 48px 40px;
+    text-align: center;
+    border: 2px solid #ebebf5;
+    box-shadow: 0 4px 20px rgba(102,126,234,0.08);
+}
+
+.contact-icon {
+    font-size: 3rem;
+    margin-bottom: 16px;
+}
+
+.contact-card h4 {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+    color: #1a1a1a;
+}
+
+.contact-card p {
+    color: #666;
+    margin-bottom: 28px;
+    line-height: 1.7;
+}
+
+.contact-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    padding: 14px 32px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102,126,234,0.3);
+}
+
+.contact-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(102,126,234,0.4);
+}
+
 /* AI 프롬프트 섹션 */
 .ai-prompts {
     background: linear-gradient(180deg, #ffffff 0%, #f8f9ff 100%);
@@ -581,6 +758,390 @@ section h3 {
 .insight-read-time {
     color: #999;
     font-size: 0.85rem;
+}
+
+/* ── 투자메모 헤더 (제목 + 잠금 버튼) ── */
+.insights-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.insights-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 4px;
+}
+
+.admin-lock-btn {
+    background: none;
+    border: 1.5px solid #dde;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    font-size: 1.05rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    color: #888;
+}
+
+.admin-lock-btn:hover {
+    border-color: #667eea;
+    color: #667eea;
+    background: rgba(102,126,234,0.06);
+}
+
+.admin-new-btn {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 18px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: opacity 0.2s;
+}
+
+.admin-new-btn:hover { opacity: 0.85; }
+
+/* Admin 카드 버튼 */
+.insight-card { position: relative; }
+
+.admin-card-btns {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    gap: 6px;
+    z-index: 2;
+}
+
+.btn-edit, .btn-delete {
+    border: none;
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.15s;
+}
+
+.btn-edit {
+    background: rgba(102,126,234,0.12);
+    color: #667eea;
+}
+
+.btn-delete {
+    background: rgba(231,76,60,0.12);
+    color: #e74c3c;
+}
+
+.btn-edit:hover, .btn-delete:hover { opacity: 0.75; }
+
+.insights-loading {
+    color: #aaa;
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.95rem;
+}
+
+/* ── 모달 공통 ── */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9000;
+    padding: 20px;
+}
+
+.modal-box {
+    background: #fff;
+    border-radius: 20px;
+    padding: 36px;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: #aaa;
+    line-height: 1;
+    padding: 4px;
+    transition: color 0.15s;
+}
+
+.modal-close:hover { color: #333; }
+
+/* 글 읽기 모달 */
+.modal-read { max-width: 720px; }
+
+/* 로그인 모달 */
+.modal-login { max-width: 420px; }
+
+.modal-login h4 {
+    margin: 0 0 20px;
+    font-size: 1.25rem;
+    color: #333;
+}
+
+.modal-login label {
+    display: block;
+    font-size: 0.87rem;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 6px;
+}
+
+.modal-login input, .modal-editor input[type="text"],
+.modal-editor input[type="password"], .modal-editor textarea {
+    width: 100%;
+    border: 1.5px solid #dde;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+    font-family: inherit;
+    background: #fafafa;
+}
+
+.modal-login input:focus, .modal-editor input:focus,
+.modal-editor textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    background: #fff;
+}
+
+.admin-pat-desc {
+    color: #666;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    margin-bottom: 14px;
+}
+
+.admin-pat-desc small { color: #999; }
+
+.admin-error {
+    color: #e74c3c;
+    font-size: 0.85rem;
+    margin-top: 8px;
+    padding: 8px 12px;
+    background: #fff5f5;
+    border-radius: 8px;
+    border: 1px solid #fcc;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: flex-end;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 22px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn-primary:hover { opacity: 0.85; }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.btn-secondary {
+    background: #f0f0f8;
+    color: #555;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 18px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-secondary:hover { background: #e0e0f0; }
+
+.btn-danger {
+    background: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn-danger:hover { opacity: 0.85; }
+
+/* 글 에디터 모달 */
+.modal-editor { max-width: 760px; }
+
+.modal-editor h4 {
+    margin: 0 0 20px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.editor-row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 14px;
+    align-items: flex-end;
+}
+
+.editor-field {
+    margin-bottom: 14px;
+}
+
+.editor-field label {
+    display: block;
+    font-size: 0.87rem;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 6px;
+}
+
+.editor-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.editor-tab {
+    background: #f0f0f8;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    color: #666;
+    font-weight: 500;
+    transition: all 0.15s;
+}
+
+.editor-tab.active {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff;
+}
+
+.modal-editor textarea {
+    min-height: 260px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+.editor-preview {
+    border: 1.5px solid #dde;
+    border-radius: 10px;
+    padding: 14px 18px;
+    min-height: 260px;
+    background: #fafafa;
+    overflow-y: auto;
+}
+
+/* 삭제 확인 모달 */
+.modal-confirm { max-width: 380px; }
+.modal-confirm h4 { margin: 0 0 12px; color: #e74c3c; }
+.modal-confirm p { color: #555; font-size: 0.95rem; line-height: 1.5; }
+
+/* 마크다운 렌더링 */
+.markdown-body h1, .markdown-body h2, .markdown-body h3 {
+    color: #222;
+    margin-top: 1.4em;
+    margin-bottom: 0.5em;
+}
+
+.markdown-body h1 { font-size: 1.6rem; }
+.markdown-body h2 { font-size: 1.3rem; border-bottom: 2px solid #eef; padding-bottom: 6px; }
+.markdown-body h3 { font-size: 1.1rem; }
+
+.markdown-body p { color: #444; line-height: 1.8; margin-bottom: 1em; }
+
+.markdown-body code {
+    background: #f4f4ff;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.88em;
+    color: #667eea;
+}
+
+.markdown-body pre {
+    background: #1e1e2e;
+    color: #cdd6f4;
+    padding: 16px 20px;
+    border-radius: 10px;
+    overflow-x: auto;
+    margin: 1em 0;
+    font-size: 0.88em;
+    line-height: 1.6;
+}
+
+.markdown-body pre code {
+    background: none;
+    color: inherit;
+    padding: 0;
+}
+
+.markdown-body blockquote {
+    border-left: 4px solid #667eea;
+    padding: 10px 18px;
+    margin: 1em 0;
+    background: rgba(102,126,234,0.05);
+    border-radius: 0 8px 8px 0;
+    color: #555;
+}
+
+.markdown-body ul, .markdown-body ol {
+    padding-left: 1.5em;
+    color: #444;
+    line-height: 1.8;
+    margin-bottom: 1em;
+}
+
+.markdown-body hr {
+    border: none;
+    border-top: 2px solid #eef;
+    margin: 1.5em 0;
+}
+
+.markdown-body strong { color: #222; }
+
+/* 반응형 */
+@media (max-width: 480px) {
+    .modal-box { padding: 22px 18px; }
+    .modal-editor { max-width: 100%; }
+    .editor-row { flex-direction: column; gap: 0; }
 }
 
 /* 푸터 - AI + 주식투자 화려한 스타일 */
