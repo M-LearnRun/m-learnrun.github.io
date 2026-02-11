@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(powershell Compress-Archive:*)",
+      "Bash(mkdir:*)",
+      "WebFetch(domain:www.val.town)",
+      "Bash(python:*)",
+      "mcp__filesystem__directory_tree",
+      "mcp__filesystem__list_allowed_directories",
+      "mcp__filesystem__list_directory",
+      "Bash(curl:*)",
+      "Bash(C:ProgramDataanaconda3python.exe -c \"import FinanceDataReader; print\\(''FDR version:'', FinanceDataReader.__version__\\)\")",
+      "mcp__filesystem__get_file_info",
+      "Bash(dir \"C:\\\\ProgramData\\\\anaconda3\"\" 2>&1 | find \"python.exe \")",
+      "mcp__filesystem__read_text_file"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
